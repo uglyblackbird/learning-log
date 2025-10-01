@@ -1,0 +1,10 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block page_header %}
+  <h2>Logged out</h2>
+{% endblock page_header %}
+
+{% block page_content %}
+  <p>You have been logged out. Thank you for visiting!</p>
+  <p><a href="{% url 'learning_logs:index' %}" class="btn btn-primary">Return to home page</a></p>
+{% endblock page_content %}

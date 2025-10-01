@@ -1,0 +1,22 @@
+{% extends 'learning_logs/base.html' %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+  <h2>Delete entry</h2>
+{% endblock page_header %}
+
+{% block page_content %}
+  <p><strong>Topic:</strong> {{ topic.text }}</p>
+  <p><strong>Entry preview:</strong> {{ entry.text|truncatewords:20 }}</p>
+
+  <div class="alert alert-warning" role="alert">
+    Are you sure you want to delete this entry? This action cannot be undone.
+  </div>
+
+  <form method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, delete</button>
+  </form>
+
+  <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-secondary">Cancel</a>
+{% endblock page_content %}
